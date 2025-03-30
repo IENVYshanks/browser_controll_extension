@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+button{
+    height : 61 ;
+    width: 169 ;
+}
