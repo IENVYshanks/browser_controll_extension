@@ -1,71 +1,98 @@
-*{
+* {
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin: 0;
+    padding: 0;
 }
-body{
+
+body {
     height: 100vh;
     background-color: bisque;
-}
-h3{
-    font-size: large;
-}
-.bod{ 
     display: flex;
-    
-   
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    color: white;
+    font-size: 25px;
+}
+
+h3 {
+    font-size: large;
+    color: white;
+}
+
+.bod {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
-h2{
-    color :white;
-    font-size: 25px;
-}
-.head{
+
+.head {
     display: flex;
     background-color: rgb(31, 28, 28);
     width: 100%;
-    
     justify-content: center;
-    
+    padding: 10px;
 }
+
 .sticky-bottom {
     margin: 5px;
     position: fixed;
-    bottom: 10px; /* 20px above the bottom */
+    bottom: 10px;
     left: 50%;
-    transform: translateX(-50%); /* Centers the element */
+    transform: translateX(-50%);
     background: rgb(31, 28, 28);
     color: white;
-    height: 100px;
+    height: 60px;
     width: 90%;
-    padding: 10px 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Hover effect */
-    display:flex;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
     align-items: center;
-    flex-direction:column;
-    justify-content: center;
+    justify-content: space-between;
 }
 
-Input{
+#uploadBtn, #sendBtn {
+    height: 45px;
+    width: 20%;
+    background-color: aqua;
+    border-radius: 4px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+#uploadBtn:hover, #sendBtn:hover {
+    background-color: #00cccc;
+}
+
+#userInput {
     font-size: medium;
     font-weight: bold;
     text-align: start;
-    margin-bottom: 5px;
     border-radius: 7px;
-    height: 50%;
-    width: 90%;
-}
-#sendBtn{
-    margin-bottom: 5px;
-    background-color: aqua;
-    border-radius:4px;
-    width: 70%;
+    height: 45px;
+    width: 55%;
+    padding-left: 10px;
+    border: 1px solid #ccc;
 }
 
-#responseText{
-    font-size: 1700;
+.response {
+    width: 90%;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#responseText {
+    font-size: 16px;
     font-weight: bold;
-    margin-bottom: 110px;
+    color: black;
 }
