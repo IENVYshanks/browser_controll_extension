@@ -3,12 +3,14 @@
   "name": "User Input Extension",
   "version": "1.0",
   "description": "Send user input to background.js and display the response",
-  "permissions": ["storage"],
+  "permissions": ["storage","sidePanel","tabs"],
   "background": {
     "service_worker": "background.js"
   },
+    "side_panel": {
+    "default_path": "popup.html"
+    },
   "action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "128": "image.jpg"
     }

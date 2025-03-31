@@ -1,5 +1,15 @@
 
 
+chrome.runtime.onStartup.addListener(() => {
+    
+    chrome.sidePanel.setOptions({
+        path: 'sidepanel.html',
+        enabled: true
+      });
+      chrome.sidePanel.open();
+});
+
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   getData(message.text).then(response => {
     sendResponse({ reply: response });
@@ -26,3 +36,4 @@ async function getData(prompt) {
       return "Error fetching response";
   }
 }
+
