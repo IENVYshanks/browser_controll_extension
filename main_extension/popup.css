@@ -20,19 +20,55 @@ h2 {
 
 h3 {
     font-size: large;
-    color: white;
+    color: black
 }
 
 .bod {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    height: 100vh;
     width: 100%;
 }
-
-.head {
+.top-element{
+    height: 500px;
+    background-color: #f9f9f9;
+    position: relative;
+    top: 0;
+    width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.resp{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    background-color: turquoise;
+}
+.response{
+    max-height: 700px; /* Set a limit to prevent overflow */
+    overflow-y: auto; /* Add scrolling when needed */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#responseText {
+    word-wrap: break-word; /* Ensure long words don't break layout */
+    overflow-wrap: break-word;
+    white-space: pre-wrap; /* Preserve formatting but wrap */
+}
+.head {
+    
+    display: flex;
+    height: 60px;
     background-color: rgb(31, 28, 28);
     width: 100%;
     justify-content: center;
@@ -56,19 +92,45 @@ h3 {
     align-items: center;
     justify-content: space-between;
 }
+.file-upload-wrapper{
+    position: relative;
+    color: black;
+    background-color: turquoise;
+    width: 200px;
+    height: 100%;
+    border-radius: 5px;
 
-#uploadBtn, #sendBtn {
-    height: 45px;
-    width: 20%;
-    background-color: aqua;
-    border-radius: 4px;
+}
+.file-upload-wrapper input[type="file"]{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.file-upload-wrapper label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
     font-weight: bold;
-    border: none;
     cursor: pointer;
 }
+#sendBtn{
+    background-color: turquoise;
+    position: relative;
+    border-radius: 5px;
+    width: 170px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
 
-#uploadBtn:hover, #sendBtn:hover {
-    background-color: #00cccc;
 }
 
 #userInput {
@@ -83,6 +145,8 @@ h3 {
 }
 
 .response {
+    
+    top: 0%;
     width: 90%;
     padding: 10px;
     background: white;

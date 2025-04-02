@@ -1,20 +1,49 @@
 
 document.getElementById("sendBtn").addEventListener("click", function () {
   const userInput = document.getElementById("userInput").value;
+  const fileInput = document.getElementById("fileInput").files[0]; // Assuming you have a file input element with ID "fileInput"
 
-  chrome.runtime.sendMessage({ text: userInput }, function (response) {
+  // Create FormData to send both text and file
+  let formData = new FormData();
+  formData.append("text", userInput);
+  formData.append("file", fileInput);
+
+  // Send the FormData to the background script using chrome.runtime.sendMessage
+  chrome.runtime.sendMessage({ formData: formData }, function (response) {
     document.getElementById("responseText").innerText = response.reply;
   });
 });
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    console.log("Enter key pressed!");
-    const userInput = document.getElementById("userInput").value;
+document.getElementById("sendBtn").addEventListener("click", function () {
+  const userInput = document.getElementById("userInput").value;
+  const fileInput = document.getElementById("fileInput").files[0]; // Get the selected file
 
-    chrome.runtime.sendMessage({ text: userInput }, function (response) {
-      document.getElementById("responseText").innerText = response.reply;
-    });
+  const reader = new FileReader();
+
+  reader.onload = function (event) {
+      const fileContent = event.target.result.split(",")[1]; // Base64 encoded content
+      const fileName = fileInput ? fileInput.name : null;
+      const fileType = fileInput ? fileInput.type : null;
+
+      chrome.runtime.sendMessage(
+          { text: userInput, file: fileContent, fileName: fileName, fileType: fileType },
+          function (response) {
+              document.getElementById("responseText").innerText = response.reply;
+          }
+      );
+  };
+
+  if (fileInput) {
+      reader.readAsDataURL(fileInput);
+  } else {
+      // If no file is selected, send only text
+      chrome.runtime.sendMessage(
+          { text: userInput, file: null, fileName: null, fileType: null },
+          function (response) {
+              document.getElementById("responseText").innerText = response.reply;
+          }
+      );
   }
 });
+
 
